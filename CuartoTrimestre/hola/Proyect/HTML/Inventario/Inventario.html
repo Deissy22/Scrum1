@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario - JJ POLARIZADOS</title>
+    <link rel="stylesheet" href="/CSS/stylesTbl.css">
+    <link rel="icon" type="image/x-icon" href="/IMG/favi.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo"><img src="/IMG/path1.png" alt="JJ Polarizados">
+            </div>
+            <div class="user-info">
+                <div id="welcomeMessage" class="welcome-message"></div>
+            <nav class="nav-menu" id="mainNav">
+
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Gestión de Inventario</h2>
+            <button id="add-btn" class="btn-add">
+                <span class="material-icons">add_circle</span>
+                Agregar Producto
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table id="main-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Referencia</th>
+                        <th>Categoría</th>
+                        <th>Valor Base</th>
+                        <th>Valor de Venta</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                        <div class="date-section">
+                            <h3>Control de Fechas</h3>
+                            <div class="date-group">
+                                <div class="input-group">
+                                    <span class="material-icons">calendar_today</span>
+                                    <div class="date-label">Entrada:</div>
+                                    <input type="date" id="entry-date">
+                                </div>
+                                <div class="input-group">
+                                    <span class="material-icons">event_busy</span>
+                                    <div class="date-label">Salida:</div>
+                                    <input type="date" id="exit-date">
+                                </div>
+                            </div>
+                        </div>
+  
+            </table>
+        </div>
+</div>
+
+    <div id="modal" class="modal">
+        <div class="card">
+            <div class="card2">
+                <div class="card-content">
+                    <p class="card-heading" id="modal-title">
+                        Agregar Producto
+                    </p>
+                    <div id="modal-form">
+                        <div class="input-group">
+                            <span class="material-icons">label</span>
+                            <input type="text" placeholder="Nombre del Producto" id="product-name">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">business</span>
+                            <input type="text" placeholder="Referencia" id="product-brand">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">category</span>
+                            <select id="product-category">
+                                <option value="Diseño">Diseño</option>
+                                <option value="Vidrios">Vidrios</option>
+                                <option value="Interiores">Interiores</option>
+                                <option value="Seguridad">Seguridad</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">payments</span>
+                            <input type="number" placeholder="Valor de Base" id="product-base-price" onchange="calculateSalePrice()">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">sell</span>
+                            <input type="number" placeholder="Valor de Venta" id="product-sale-price" readonly>
+                    </div>
+                        <div class="input-group">
+                            <span class="material-icons">inventory_2</span>
+                            <input type="number" placeholder="Stock" id="product-quantity">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">calendar_today</span>
+                            <input type="date" placeholder="Fecha de Entrada" id="entry-date">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">
+                        <span class="material-icons">close</span>
+                        Cancelar
+                    </button>
+                    <button class="card-button primary" id="save-btn">
+                        <span class="material-icons">save</span>
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this before the closing body tag -->
+    <div id="reviewModal" class="modal">
+        <div class="card">
+            <div class="card2">
+                <div class="card-content">
+                    <p class="card-heading">Revisión de Inventario</p>
+                    <div id="review-form">
+                        <div class="input-group">
+                            <span class="material-icons">inventory</span>
+                            <input type="text" id="product-review-name" readonly>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">numbers</span>
+                            <input type="number" placeholder="Cantidad Real" id="actual-quantity">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">warning</span>
+                            <input type="number" placeholder="Discrepancia" id="quantity-discrepancy" readonly>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">note</span>
+                            <textarea id="review-notes" placeholder="Observaciones"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">calendar_today</span>
+                            <input type="date" id="review-date">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="review-cancel-btn">
+                        <span class="material-icons">close</span>
+                        Cancelar
+                    </button>
+                    <button class="card-button primary" id="review-save-btn">
+                        <span class="material-icons">save</span>
+                        Guardar Revisión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/JS/Inventario/scriptInv.js"></script>
+    <script src="/JS/scriptGen.js"></script>
+    <script src="/JS/navControl.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>
