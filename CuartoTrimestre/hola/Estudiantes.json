@@ -4,7 +4,7 @@
    "Nombres": "Luciana",
    "Apellido": "Pineda Rodriguez",
    "Carrera": "Ingeniería de Software",
-   "edad": 17,
+   "edad": 20,
    "Materias": ["Sistemas de Gestion de Bases de Datos", "Inglés"]
 }
 //Insertar varios estudiantes
@@ -27,7 +27,7 @@
     },
     {
         "id_alumno":1199890234,
-        "Nombres": "Matias",
+        "Nombres": "Matias Andres",
         "Apellido": "Suarez Santos",
         "Carrera": "Ingeniería Agroecológica",
         "edad": 25,
