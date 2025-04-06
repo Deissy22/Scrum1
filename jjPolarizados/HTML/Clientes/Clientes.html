@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuracion de Usuarios</title>
+    <link rel="stylesheet" href="/CSS/stylesTbl.css">
+    <link rel="stylesheet" href="/CSS/stylesHisto.css">  
+    <link rel="icon" type="image/x-icon" href="/IMG/favi.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo"><img src="/IMG/path1.png" alt="JJ Polarizados">
+            </div>
+            <div class="user-info">
+                <div id="welcomeMessage" class="welcome-message"></div>
+            <nav class="nav-menu" id="mainNav">
+
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Clientes</h2>
+            <button id="add-btn" class="btn-add">
+                <span class="material-icons">person_add</span>
+                Agregar Cliente
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table id="main-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Dirección</th>
+                        <th>Total Compras</th>
+                        <th>Última Visita</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="card">
+            <div class="card2">
+                <div class="card-content">
+                    <h2 class="card-heading" id="modal-tittle">
+                        Agregar Cliente
+                    </h2>
+                    <form id="modal-form">
+                        <div class="input-group">
+                            <span class="material-icons">person</span>
+                            <input type="text" placeholder="Nombre completo" id="name" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">phone</span>
+                            <input type="tel" placeholder="Teléfono" id="phone" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">email</span>
+                            <input type="email" placeholder="Correo electrónico" id="email" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">home</span>
+                            <input type="text" placeholder="Dirección" id="address">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">calendar_today</span>
+                            <input type="date" id="dob">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">note</span>
+                            <textarea id="notes" placeholder="Notas adicionales"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">
+                        <span class="material-icons">cancel</span>
+                        Cancelar
+                    </button>
+                    <button class="card-button primary" id="save-btn">
+                        <span class="material-icons">save</span>
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="historyModal" class="modal">
+        <div class="card">
+            <div class="card2">
+                <div class="card-content">
+                    <h2 class="card-heading">Historial del Cliente</h2>
+                    <div class="client-summary">
+                        <h3 id="clientName"></h3>
+                        <p id="clientContact"></p>
+                    </div>
+                    <div class="history-tabs">
+                        <button class="tab-btn active" data-tab="purchases">Compras</button>
+                        <button class="tab-btn" data-tab="services">Servicios</button>
+                    </div>
+                    <div class="history-content">
+                        <div id="purchasesHistory" class="history-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div id="servicesHistory" class="history-table" style="display: none;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Servicio</th>
+                                        <th>Estado</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="closeHistory">
+                        <span class="material-icons">close</span>
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="card">
+            <div class="card2">
+                <div class="card-content">
+                    <h2 class="card-heading" id="modal-tittle">
+                        Agregar Cliente
+                    </h2>
+                    <form id="modal-form">
+                        <div class="input-group">
+                            <span class="material-icons">person</span>
+                            <input type="text" placeholder="Nombre completo" id="name" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">phone</span>
+                            <input type="tel" placeholder="Teléfono" id="phone" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">email</span>
+                            <input type="email" placeholder="Correo electrónico" id="email" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">home</span>
+                            <input type="text" placeholder="Dirección" id="address">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">calendar_today</span>
+                            <input type="date" id="dob">
+                        </div>
+                        <div class="input-group">
+                            <span class="material-icons">note</span>
+                            <textarea id="notes" placeholder="Notas adicionales"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-button-wrapper">
+                    <button class="card-button secondary" id="cancel-btn">
+                        <span class="material-icons">cancel</span>
+                        Cancelar
+                    </button>
+                    <button class="card-button primary" id="save-btn">
+                        <span class="material-icons">save</span>
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Al final del body, antes de cerrar -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/JS/scriptGen.js"></script>
+    <script src="/JS/navControl.js"></script>
+    <script src="/JS/Clientes/scriptClien.js"></script>
+    <script src="/JS/Clientes/scriptHisto.js"></script>
+</body>
+
+</html>
