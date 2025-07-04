@@ -1,0 +1,99 @@
+:root {
+  --primary-dark: #2B2D42;
+  --secondary: #8D99AE;
+  --background: #EDF2F4;
+  --primary-red: #EF233C;
+  --dark-red: #9b0729;
+}
+
+body {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+.navbar {
+  color: white;
+  height: 5rem;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+
+
+.navbar .button {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand,
+.navbar-menu {
+  align-items: center;
+}
+
+.btn-login:hover {
+  background-color: var(--dark-red);
+  color: var(--background);
+}
+
+.hero-bg {
+  position: relative;
+  /*background-image: url("/../img/hero-bg.jpg");*/
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Filtro oscuro */
+  z-index: 0;
+}
+
+.hero-bg .hero-body {
+  position: relative;
+  z-index: 1;
+}
+
+.card-header {
+  background-color: var(--dark-red) !important;
+}
+
+.icon{
+  color: var(--primary-red);
+}
+
+.has-text-dark-red {
+  color: var(--dark-red);
+}
+
+.login-body {
+  background-color: var(--background);
+}
+
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  border-top: 5px solid var(--dark-red);
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn {
+  background-color: var(--dark-red);
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-red);
+}
+
+.title-login {
+  color: var(--dark-red);
+}
+
